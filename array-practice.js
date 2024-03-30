@@ -1,38 +1,80 @@
 const findMinimum = arr => {
 
-  // Your code here 
+  let minIndex = 0;
 
+  for (let i = 0; i < arr.length; i ++) {
+    if (arr[i] < arr[minIndex]) {
+      minIndex = i;
+    }
+  }
+  return arr[minIndex];
 };
 
 const runningSum = arr => {
+  let total = 0 
 
-  // Your code here 
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i];
+    arr[i] = total;
+  }
+
+  return arr
+  
 };
 
 const evenNumOfChars = arr => {
 
-  // Your code here 
+  const evenArr = arr.filter((word) => word.length % 2 === 0)
+  return evenArr.length;
 };
 
 const smallerThanCurr = arr => {
+  let countArr = [];
 
-  // Your code here 
+
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] > arr[j]) {
+        count++;
+      }
+    }
+    countArr.push(count)
+  }
+  return countArr;
 
 };
 
 const twoSum = (arr, target) => {
-
-  // Your code here 
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] + arr[j] === target) {
+        return true;
+      }
+    }
+  }
+  return false;
 };
 
 const secondLargest = arr => {
 
-  // Your code here 
+  arr.sort((a, b) => a - b)
+  return arr[arr.length - 2]
 };
 
 const shuffle = (arr) => {
+  let newArr = [...arr];
 
-  // Your code here 
+  for (let i = 0; i < arr.length; i++) {
+    let randomNum = Math.floor(Math.random() * arr.length);
+  
+    let randomItem = newArr.splice(randomNum, 1);
+    
+    newArr.push(...randomItem);
+  }
+  return newArr;
+    
+  
 };
 
 
